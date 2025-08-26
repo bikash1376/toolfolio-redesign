@@ -1,103 +1,137 @@
+"use client";
+
+
+import { Bricolage_Grotesque } from "next/font/google";
 import Image from "next/image";
+import { MdArrowOutward } from "react-icons/md";
+import {MeshGradient} from '@paper-design/shaders-react';
+
+export const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal"],
+  display: "swap",
+});
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const innerDivClass = `
+    mx-auto my-6 sm:my-10 rounded-3xl flex justify-center pt-10 sm:pt-6
+    bg-white text-black min-h-screen
+    w-[94vw] max-w-lg sm:max-w-xl md:max-w-[1600px]
+    px-2 sm:px-6
+  `;
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  return (
+    <>
+
+
+<div className="min-h-screen pt-2 pb-2 relative flex justify-center items-center">
+   <div className="absolute inset-0 z-0">
+    <MeshGradient
+colors={['#5100ff', '#0077ff', '#00ffaa', '#00ff80']}
+
+      distortion={2}
+      swirl={0.8}
+      speed={0.2}
+      style={{ width: '100%', height: '100%' }}
+    />
+  </div>
+
+
+
+
+
+        <div className={`${innerDivClass} relative z-10`}>
+          <div className="flex flex-col items-center w-full">
+            <div className="w-full mb-10">
+              <nav className="mx-auto max-w-4xl flex items-center justify-between px-2 py-2 rounded-2xl bg-neutral-900 text-white">
+                {/* Left: Logo */}
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/toolfoliocropped.png"
+                    alt="Toolfolio Logo"
+                    width={40}
+                    height={40}
+                    className="p-2 bg-blue-600 rounded-lg"
+                  />
+                  <p className="text-lg font-semibold">Toolfolio</p>
+                </div>
+
+                {/* Center: Navigation Links */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 flex gap-6 items-center">
+                  <p className="hover:text-blue-400 cursor-pointer">Explore</p>
+                  <p className="hover:text-blue-400 cursor-pointer">
+                    Marketplace
+                  </p>
+                  <p className="hover:text-blue-400 cursor-pointer">
+                    Resources
+                  </p>
+                </div>
+
+                {/* Right: Subscribe Button */}
+                <div>
+                  <button className="border-1 border-b-3 border-cyan-950 bg-gradient-to-b from-blue-300 via-blue-800 to-blue-700 text-white px-4 py-1 rounded-lg hover:bg-blue-500 transition">
+                    Subscribe
+                  </button>
+                </div>
+              </nav>
+            </div>
+
+            <div className="border-white border-2 flex flex-col justify-center items-center gap-6 sm:gap-6 px-6 py-10 rounded-3xl text-center">
+              <div className="text-white bg-gray-900 px-1 pr-3 py-1 rounded-full text-sm sm:text-base flex items-center gap-3 border-2 mb-2">
+                <p className="text-neutral-900 bg-blue-300 px-3 py-1 rounded-full text-sm sm:text-base">
+                  NEW
+                </p>
+                <div className="flex flex-col">
+                  <p className="text-white text-sm sm:text-base flex items-center gap-1">
+                    Newest Additions
+                    <span className="text-blue-300">
+                      <MdArrowOutward />
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              <p className={` ${bricolage.className} font-medium text-6xl `}>
+                All the{" "}
+                <span className="relative inline-block bg-cyan-950 text-indigo-300 px-2 py-1 rounded-md">
+                  Tools
+                  {/* Handles */}
+                  <span className="absolute w-3 h-3 bg-indigo-300  top-0 left-0 transform -translate-x-1/2 -translate-y-1/2"></span>
+                  <span className="absolute w-3 h-3 bg-indigo-300 top-0 right-0 transform translate-x-1/2 -translate-y-1/2"></span>
+                  <span className="absolute w-3 h-3 bg-indigo-300 bottom-0 left-0 transform -translate-x-1/2 translate-y-1/2"></span>
+                  <span className="absolute w-3 h-3 bg-indigo-300 bottom-0 right-0 transform translate-x-1/2 translate-y-1/2"></span>
+                </span>{" "}
+                You Need <br /> in one place.
+              </p>
+              <p className="text-black/60 text-2xl sm:text-2xl mb-8">
+                Tools, Resources & Products. Delivered weekly{" "}
+              </p>
+                 <button className="text-3xl border-1 border-b-3 border-cyan-950 bg-blue-600 text-white px-6 py-1 rounded-lg hover:bg-blue-500 transition">
+                    Subscribe
+                  </button>
+            </div>
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/image.png"
+              alt="Toolfolio Logo"
+              width={1200}
+              height={1200}
+              className="dark:invert opacity-60 rounded-lg "
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      <style jsx global>{`
+        @keyframes gradientMove {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 100% 50%;
+          }
+        }
+      `}</style>
+    </>
   );
 }
